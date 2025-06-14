@@ -12,6 +12,12 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::middleware(['auth'])->group(function () {
+        // Add this dashboard route
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    
     Route::redirect('settings', 'settings/profile');
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
